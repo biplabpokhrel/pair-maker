@@ -1,0 +1,41 @@
+<div class="shuffle-root">
+    <div>
+        <h1>
+            <em> We have {{ participants.length }} participants </em>
+        </h1>
+    </div>
+    <div class="toggle">
+        <button (click)="toggle()" class="togglebtn" mat-fab height="200px" width="200px" color="warn"
+            [class.spinner]="Shuffling" aria-label="Example icon button with a home icon">
+            <mat-icon *ngIf="!Shuffling">play_circle_filled</mat-icon>
+            <mat-icon *ngIf="Shuffling">fiber_manual_record</mat-icon>
+        </button>
+    </div>
+    <div>
+        <em>Click on the Red ball to create team </em>
+    </div>
+    <div style="width: 100%; padding: 15px">
+        <mat-divider></mat-divider>
+    </div>
+
+    <div>
+            <button mat-button mat-icon-button (click)="numberOfParticipantInEachGroup = numberOfParticipantInEachGroup - 1">
+                <mat-icon>remove_circle</mat-icon>
+            </button>
+            <span matTooltip="Number of Participant in Each Group"> {{ numberOfParticipantInEachGroup }} </span>
+            <button mat-button matSuffix mat-icon-button (click)="numberOfParticipantInEachGroup = numberOfParticipantInEachGroup + 1">
+                <mat-icon>add_circle</mat-icon>
+            </button>
+    </div>
+</div>
+<div *ngIf="Shuffling" class="participants">
+    <mat-card color="primary">
+        <mat-list>
+            <mat-list-item *ngFor="let participant of participants">
+                <mat-icon mat-list-icon>account_circle</mat-icon>
+                <div mat-line>{{participant.name}}</div>
+                <div mat-line>{{participant.email}}</div>
+            </mat-list-item>
+        </mat-list>
+    </mat-card>
+</div>

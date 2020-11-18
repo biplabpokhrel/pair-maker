@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { ParticipantComponent } from './components/participant/participant.component'
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'c1-pair-maker';
+  title = 'Pair Maker';
+
+  constructor(public dialog: MatDialog) {}
+  
+  addParticipant() {
+    const dialogRef = this.dialog.open(ParticipantComponent, {
+      
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    })
+  }
 }

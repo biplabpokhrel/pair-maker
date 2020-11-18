@@ -1,0 +1,22 @@
+<h2 mat-dialog-title> {{ title }} Participant </h2>
+<mat-dialog-content class="mat-typography">
+    
+    <div class="field">
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input [(ngModel)]="participant.name" #ctrl="ngModel" required matInput placeholder="Enter Full Name">
+            <mat-hint>Participant's FullName</mat-hint>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input [(ngModel)]="participant.email" #ctrl="ngModel" matInput required type="email" placeholder="Enter Email">
+            <mat-hint>Participant's Email</mat-hint>
+        </mat-form-field>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="start">
+    <button mat-button [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
+    <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

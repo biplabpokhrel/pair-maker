@@ -1,0 +1,14 @@
+<div class="participant-group">
+    <mat-card  *ngFor="let participantsGroup of participantsGroups; let index=index">
+        <mat-card-title> Group {{ index + 1 }}</mat-card-title>
+        <mat-card-content>
+            <mat-list>
+                <mat-list-item *ngFor="let participant of participantsGroup">
+                    <mat-icon mat-list-icon>account_circle</mat-icon>
+                    <div mat-line>{{participant.name}}</div>
+                    <div mat-line>{{participant.email}}</div>
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+    </mat-card> 
+</div>
